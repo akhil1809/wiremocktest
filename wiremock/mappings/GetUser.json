@@ -1,0 +1,82 @@
+{
+    "mappings" : [
+        {
+            "request" : {
+                "urlPathPattern" : "/api/users",
+                "method" : "GET",
+                "queryParameters" : 
+                {
+                    "id" : {
+                        "matches" : "\\b(?:1|2|4|8)\\b"
+                    }
+                }
+            },
+            "response" : {
+            "status" :200,
+            "bodyFileName" : "{{request.query.[id]}}.json",
+             "headers" : {
+                 "Content-Type" : "application/json"
+             }
+            },
+            "priority" :2
+
+            
+        },
+        {
+            "request"  :{
+                "urlPathPattern" : "/api/users",
+                "method" : "GET",
+                "queryParameters" : 
+                {
+                    "id" : {
+                        "matches" : "\\b(?:12|5|3|6)\\b"
+                    }
+                }
+            },
+            "response" :{
+                "status" : 500,
+                "statusMessage" : "Internal Server Error",
+                "headers" : {
+                    "Content-Type" : "application/json"
+                }
+            },
+            "priority" :1
+        },
+        {
+            "request"  :{
+                "urlPathPattern" : "/api/users",
+                "method" : "GET",
+                "queryParameters" : 
+                {
+                    "id" : {
+                        "matches" : "\\b(?:10|9|14|16)\\b"
+                    }
+                }
+            },
+            "response" :{
+                "status" : 200,
+                "proxyBaseUrl" : "https://reqres.in/"
+            },
+            "priority" :1
+            
+        },
+        {
+            "request" :{
+                "method" :"GET",
+                "urlPathPattern" :"/api/users/([0-9]*)$"
+            },
+            "response" :{
+                "status" :200,
+                "jsonBody" : {
+                    "id" : "{{request.pathSegments.[2]}}"
+                },
+                "transformers": ["response-template"],
+                "headers": {
+                   "Content-Type": "application/json"
+                }
+            }
+        
+        }
+
+   ]
+}

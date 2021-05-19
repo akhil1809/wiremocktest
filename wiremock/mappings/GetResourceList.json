@@ -1,0 +1,23 @@
+{
+    "mappings": [
+      {
+         "request" : {
+            "urlPathPattern" : "/api/users",
+             "method" : "GET",           
+             "queryParameters" : {
+                 "page" : {
+                     "equalTo" : "1"
+                 }
+             }      
+         },
+         "response" : {
+             "status" : 200,
+             "bodyFileName" : "ListResource.json",
+             "headers" : {
+                 "Content-Type" : "application/json"
+             }
+         }
+      }   
+
+    ]
+}

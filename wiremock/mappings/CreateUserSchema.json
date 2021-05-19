@@ -1,0 +1,22 @@
+{
+    "mappings": [
+        {
+            "request" :{
+
+                "method" : "POST",
+                "urlPathPattern" :"/api/users",
+                "bodyPatterns": [
+                    {
+                        "matchesJsonPath": "$[?(@.name == 'morpheus')][?(@.job == 'leader')]" 
+                    }
+                ]
+            },
+            "response" : {
+                "status" : 201,
+                "bodyFileName" : "Createuser.json"
+            }
+        }
+        
+    ]
+    
+}

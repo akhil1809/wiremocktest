@@ -1,0 +1,6 @@
+{
+    "name": "morpheus",
+    "job": "leader",
+    "id": "908",
+    "createdAt": "{{now timezone='Australia/Sydney' format='yyyy-MM-dd HH:mm:ssZ'}}"
+}
